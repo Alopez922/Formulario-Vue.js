@@ -2,7 +2,7 @@ Vue.component("usuario-add",{
     template:`
     <div>
     
-    <form>
+   
     <table>
     <th>
     <label>Nombre</label>
@@ -31,8 +31,6 @@ Vue.component("usuario-add",{
     </td>
     </tr>
 
-
-    </form>
     <button @click="onClick">Guardar</button>    
     </div>
     `,
@@ -47,7 +45,8 @@ Vue.component("usuario-add",{
 
     methods:{
         onClick:function(){
-            this.$emit("new",{nombre:this.nombre, apellido:this.apellido, usuario:this.usuario, edad:Math.abs(this.edad.slice(0,4)-2023)})
+            let fecha = new Date()
+            this.$emit("new",{nombre:this.nombre, apellido:this.apellido, usuario:this.usuario, edad:Math.abs(this.edad.slice(0,4)-fecha.getFullYear())})
 
         }
     }
